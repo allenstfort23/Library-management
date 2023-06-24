@@ -1,9 +1,13 @@
 package com.librarymanagement.librarymanagement.dto;
 
 
+import lombok.Builder;
+import lombok.Data;
+
 import java.time.LocalDateTime;
 
-
+@Data
+@Builder
 public class MemberDto {
     private Long id;
     private String firstName;
