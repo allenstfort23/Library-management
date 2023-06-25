@@ -21,6 +21,7 @@ public class Member {
     private String lastName;
     private String memberId;
     private String book;
+    private String photoUrl;
     @CreationTimestamp
     private LocalDateTime createdOn;
     @UpdateTimestamp

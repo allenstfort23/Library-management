@@ -33,6 +33,7 @@ public class MemberServiceImpl implements MemberService {
                 .lastName(member.getLastName())
                 .createdOn(member.getCreatedOn())
                 .updateOn(member.getUpdateOn())
+                .photoUrl(member.getPhotoUrl())
                 .build();
         return memberDto;
     }
