@@ -24,6 +24,11 @@ public class MemberServiceImpl implements MemberService {
        return members.stream().map(member -> mapToMemberDto(member)).collect(Collectors.toList());
     }
 
+    @Override
+    public void saveMember(Member member) {
+        memberRepository.save(member);
+    }
+
     private MemberDto mapToMemberDto(Member member){
         MemberDto memberDto = MemberDto.builder()
                 .id(member.getId())
@@ -34,6 +39,7 @@ public class MemberServiceImpl implements MemberService {
                 .createdOn(member.getCreatedOn())
                 .updateOn(member.getUpdateOn())
                 .photoUrl(member.getPhotoUrl())
+                .email(member.getEmail())
                 .build();
         return memberDto;
     }

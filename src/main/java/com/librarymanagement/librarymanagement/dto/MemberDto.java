@@ -10,11 +10,13 @@ import java.time.LocalDateTime;
 @Builder
 public class MemberDto {
     private Long id;
+    private String email;
     private String firstName;
     private String lastName;
     private String memberId;
     private String book;
     private String photoUrl;
+    private String author;
     private LocalDateTime createdOn;
     private LocalDateTime updateOn;
 }

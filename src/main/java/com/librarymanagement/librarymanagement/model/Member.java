@@ -17,11 +17,13 @@ public class Member {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    private String email;
     private String firstName;
     private String lastName;
     private String memberId;
     private String book;
     private String photoUrl;
+    private String author;
     @CreationTimestamp
     private LocalDateTime createdOn;
     @UpdateTimestamp

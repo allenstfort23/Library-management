@@ -1,10 +1,47 @@
-<!DOCTYPE html>
-<html lang="en">
+<html layout:decorate="~{layout}" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Create Member</title>
 </head>
-<body>
-
+<body class="d-flex flex-column h-100">
+<main class="flex-shrink-0">
+    <!-- Page Content-->
+    <section class="py-5" layout:fragment="body">
+        <div class="container">
+            <form class="row g-3" method="post" role="form" th:action="@{/members/new}" th:object="${member}">
+                <div class="col-md-6">
+                    <label class="form-label" for="email">Email</label>
+                    <input class="form-control"
+                           id="email"
+                           type="email"
+                           placeholder="Email"
+                           name="email"
+                           th:field="*{email}">
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label" for="firstName">PhotoUrl</label>
+                    <input class="form-control"
+                           id="firstName"
+                           type="text"
+                           placeholder="First Name"
+                           name="firstName"
+                           th:field="*{firstName}">
+                </div>
+                <div class="col-12 mb-3">
+                    <label class="form-label" for="lastName">Address</label>
+                    <input class="form-control"
+                           id="lastName"
+                           type="text"
+                           placeholder="Last Name"
+                           name="lastName"
+                           th:field="*{lastName}">
+                </div>
+                <div class="col-12">
+                    <button class="btn btn-primary" type="submit">Create</button>
+                </div>
+            </form>
+        </div>
+    </section>
+</main>
 </body>
 </html>
