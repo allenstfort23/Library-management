@@ -8,7 +8,7 @@
     <!-- Page Content-->
     <section class="py-5" layout:fragment="body">
         <div class="container">
-            <form class="row g-3" method="post" role="form" th:action="@{/members/new}" th:object="${member}">
+            <form class="row g-3" method="post" role="form" th:action="@{/members/new}" th:object="${members}">
                 <div class="col-md-6">
                     <label class="form-label" for="email">Email</label>
                     <input class="form-control"
@@ -19,7 +19,7 @@
                            th:field="*{email}">
                 </div>
                 <div class="col-md-6">
-                    <label class="form-label" for="firstName">PhotoUrl</label>
+                    <label class="form-label" for="firstName">First name</label>
                     <input class="form-control"
                            id="firstName"
                            type="text"
@@ -28,7 +28,7 @@
                            th:field="*{firstName}">
                 </div>
                 <div class="col-12 mb-3">
-                    <label class="form-label" for="lastName">Address</label>
+                    <label class="form-label" for="lastName">Last name</label>
                     <input class="form-control"
                            id="lastName"
                            type="text"
