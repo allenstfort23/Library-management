@@ -10,15 +10,6 @@
         <div class="container">
             <form class="row g-3" method="post" role="form" th:action="@{/members/new}" th:object="${members}">
                 <div class="col-md-6">
-                    <label class="form-label" for="email">Email</label>
-                    <input class="form-control"
-                           id="email"
-                           type="email"
-                           placeholder="Email"
-                           name="email"
-                           th:field="*{email}">
-                </div>
-                <div class="col-md-6">
                     <label class="form-label" for="firstName">First name</label>
                     <input class="form-control"
                            id="firstName"
@@ -35,6 +26,15 @@
                            placeholder="Last Name"
                            name="lastName"
                            th:field="*{lastName}">
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label" for="email">Email</label>
+                    <input class="form-control"
+                           id="email"
+                           type="email"
+                           placeholder="Email"
+                           name="email"
+                           th:field="*{email}">
                 </div>
                 <div class="col-12">
                     <button class="btn btn-primary" type="submit">Create</button>

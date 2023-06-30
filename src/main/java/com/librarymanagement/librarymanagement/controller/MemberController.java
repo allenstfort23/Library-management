@@ -35,7 +35,7 @@ public class MemberController {
         return "members-create";
     }
 
-    @PostMapping
+    @PostMapping("/members/new")
     public String saveMember(@ModelAttribute("members") Member member){
          memberService.saveMember(member);
         return "redirect:/members";

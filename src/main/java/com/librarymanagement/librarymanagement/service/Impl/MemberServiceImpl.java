@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 @Service
 public class MemberServiceImpl implements MemberService {
-    private MemberRepository memberRepository;
+    private final MemberRepository memberRepository;
 
     @Autowired
     public MemberServiceImpl(MemberRepository memberRepository) {
@@ -30,7 +30,7 @@ public class MemberServiceImpl implements MemberService {
     }
 
     private MemberDto mapToMemberDto(Member member){
-        MemberDto memberDto = MemberDto.builder()
+        return MemberDto.builder()
                 .id(member.getId())
                 .memberId(member.getMemberId())
                 .book(member.getBook())
@@ -40,7 +40,7 @@ public class MemberServiceImpl implements MemberService {
                 .updateOn(member.getUpdateOn())
                 .photoUrl(member.getPhotoUrl())
                 .email(member.getEmail())
+                .author(member.getAuthor())
                 .build();
-        return memberDto;
     }
 }
