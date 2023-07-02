@@ -17,6 +17,7 @@ public class MemberDto {
     private String book;
     private String photoUrl;
     private String author;
+    private String bookId;
     private LocalDateTime createdOn;
     private LocalDateTime updateOn;
 }

@@ -6,7 +6,10 @@ import com.librarymanagement.librarymanagement.model.Member;
 import java.util.List;
 
 public interface MemberService {
-    List<MemberDto> findByMemberId();
+    List<MemberDto> findByMember();
 
     void saveMember(Member member);
+
+    MemberDto findByMemberId(long memberId);
+
 }

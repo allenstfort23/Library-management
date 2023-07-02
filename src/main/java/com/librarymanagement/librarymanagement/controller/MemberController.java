@@ -8,13 +8,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
 
 @Controller
 public class MemberController {
-    private final MemberService memberService;
+    private MemberService memberService;
 
     @Autowired
     public MemberController(MemberService memberService) {
@@ -23,7 +24,7 @@ public class MemberController {
 
     @GetMapping("/members")
     public String listMember(Model model) {
-        List<MemberDto> members = memberService.findByMemberId();
+        List<MemberDto> members = memberService.findByMember();
         model.addAttribute("members", members);
         return "members-list";
     }
@@ -39,5 +40,14 @@ public class MemberController {
     public String saveMember(@ModelAttribute("members") Member member){
          memberService.saveMember(member);
         return "redirect:/members";
+    }
+
+    @GetMapping("/members/{memberId}/edit") {
+     public String editClubForm(@PathVariable("memberId") Long memberId, Model model) {
+         MemberDto member = memberService.findByMemberId(memberId);
+         model.addAttribute("member", member);
+         return "members-edit";
+        }
+
     }
 }

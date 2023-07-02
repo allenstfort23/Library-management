@@ -19,7 +19,7 @@ public class MemberServiceImpl implements MemberService {
     }
 
     @Override
-    public List<MemberDto> findByMemberId() {
+    public List<MemberDto> findByMember() {
        List<Member> members = memberRepository.findAll();
        return members.stream().map(member -> mapToMemberDto(member)).collect(Collectors.toList());
     }
@@ -27,6 +27,12 @@ public class MemberServiceImpl implements MemberService {
     @Override
     public void saveMember(Member member) {
         memberRepository.save(member);
+    }
+
+    @Override
+    public MemberDto findMemberById(long memberId) {
+        Member member = memberRepository.findById(memberId).get();
+        return mapToMemberDto(member);
     }
 
     private MemberDto mapToMemberDto(Member member){

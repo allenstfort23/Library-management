@@ -22,6 +22,7 @@ public class Member {
     private String lastName;
     private String memberId;
     private String book;
+    private String bookId;
     private String photoUrl;
     private String author;
     @CreationTimestamp
