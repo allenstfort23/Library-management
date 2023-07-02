@@ -29,17 +29,20 @@ public class MemberServiceImpl implements MemberService {
         memberRepository.save(member);
     }
 
+
     @Override
-    public MemberDto findMemberById(long memberId) {
+    public MemberDto findByMemberId(long memberId) {
         Member member = memberRepository.findById(memberId).get();
         return mapToMemberDto(member);
     }
+
 
     private MemberDto mapToMemberDto(Member member){
         return MemberDto.builder()
                 .id(member.getId())
                 .memberId(member.getMemberId())
                 .book(member.getBook())
+                .bookId(member.getBookId())
                 .firstName(member.getFirstName())
                 .lastName(member.getLastName())
                 .createdOn(member.getCreatedOn())

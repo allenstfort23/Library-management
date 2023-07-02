@@ -42,12 +42,11 @@ public class MemberController {
         return "redirect:/members";
     }
 
-    @GetMapping("/members/{memberId}/edit") {
+    @GetMapping("/members/{memberId}/edit")
      public String editClubForm(@PathVariable("memberId") Long memberId, Model model) {
          MemberDto member = memberService.findByMemberId(memberId);
          model.addAttribute("member", member);
          return "members-edit";
         }
 
-    }
 }
