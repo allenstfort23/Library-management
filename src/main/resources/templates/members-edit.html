@@ -8,7 +8,8 @@
     <!-- Page Content-->
     <section class="py-5" layout:fragment="body">
         <div class="container">
-            <form class="row g-3" method="post" role="form" th:action="@{/members/{memberId}/edit(memberId=$.id})}" th:object="${members}">
+            <form class="row g-3" method="post" role="form" th:action="@{/members/{memberId}/edit(memberId=${members.id})}" th:object="${members}">
+                <input type="hidden" th:field="*{id}">
                 <div class="col-md-6">
                     <label class="form-label" for="firstName">First name</label>
                     <input class="form-control"
@@ -17,6 +18,7 @@
                            placeholder="First Name"
                            name="firstName"
                            th:field="*{firstName}">
+                    <p th:if="${#fields.hasErrors('firstName')}" class="text-danger" th:errors="*{firstName}"></p>
                 </div>
                 <div class="col-12 mb-3">
                     <label class="form-label" for="lastName">Last name</label>
@@ -26,6 +28,7 @@
                            placeholder="Last Name"
                            name="lastName"
                            th:field="*{lastName}">
+                    <p th:if="${#fields.hasErrors('lastName')}" class="text-danger" th:errors="*{lastName}"></p>
                 </div>
                 <div class="col-md-6">
                     <label class="form-label" for="email">Email</label>

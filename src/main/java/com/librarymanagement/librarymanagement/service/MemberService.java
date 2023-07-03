@@ -12,4 +12,6 @@ public interface MemberService {
 
     MemberDto findByMemberId(long memberId);
 
+
+    void updateMember(MemberDto member);
 }

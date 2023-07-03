@@ -36,6 +36,28 @@ public class MemberServiceImpl implements MemberService {
         return mapToMemberDto(member);
     }
 
+    @Override
+    public void updateMember(MemberDto memberDto) {
+      Member member = mapToMap(memberDto);
+      memberRepository.save(member);
+    }
+
+    private Member mapToMap(MemberDto member) {
+        return Member.builder()
+                .id(member.getId())
+                .memberId(member.getMemberId())
+                .book(member.getBook())
+                .bookId(member.getBookId())
+                .firstName(member.getFirstName())
+                .lastName(member.getLastName())
+                .createdOn(member.getCreatedOn())
+                .updateOn(member.getUpdateOn())
+                .photoUrl(member.getPhotoUrl())
+                .email(member.getEmail())
+                .author(member.getAuthor())
+                .build();
+    }
+
 
     private MemberDto mapToMemberDto(Member member){
         return MemberDto.builder()
