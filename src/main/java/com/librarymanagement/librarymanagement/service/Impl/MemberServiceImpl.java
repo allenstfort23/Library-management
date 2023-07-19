@@ -25,7 +25,8 @@ public class MemberServiceImpl implements MemberService {
     }
 
     @Override
-    public void saveMember(Member member) {
+    public void saveMember(MemberDto memberDto) {
+        Member member = mapToMember(memberDto);
         memberRepository.save(member);
     }
 
@@ -38,11 +39,11 @@ public class MemberServiceImpl implements MemberService {
 
     @Override
     public void updateMember(MemberDto memberDto) {
-      Member member = mapToMap(memberDto);
+      Member member = mapToMember(memberDto);
       memberRepository.save(member);
     }
 
-    private Member mapToMap(MemberDto member) {
+    private Member mapToMember(MemberDto member) {
         return Member.builder()
                 .id(member.getId())
                 .memberId(member.getMemberId())

@@ -39,8 +39,12 @@ public class MemberController {
     }
 
     @PostMapping("/members/new")
-    public String saveMember(@ModelAttribute("members") Member member){
-         memberService.saveMember(member);
+    public String saveMember(@Valid @ModelAttribute("members") MemberDto memberDto, BindingResult result, Model model){
+        if(result.hasErrors()) {
+            model.addAttribute("members", memberDto);
+            return "members-create";
+        }
+         memberService.saveMember(memberDto);
         return "redirect:/members";
     }
 

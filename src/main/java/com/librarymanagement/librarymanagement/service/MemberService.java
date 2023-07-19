@@ -8,7 +8,7 @@ import java.util.List;
 public interface MemberService {
     List<MemberDto> findByMember();
 
-    void saveMember(Member member);
+    void saveMember(MemberDto memberDto);
 
     MemberDto findByMemberId(long memberId);
 
