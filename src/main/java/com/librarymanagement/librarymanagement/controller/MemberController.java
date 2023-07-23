@@ -55,6 +55,13 @@ public class MemberController {
          return "members-edit";
         }
 
+        @GetMapping("/members/{memberId}")
+        public String memberDetail(@PathVariable("memberId") Long memberId,Model model) {
+        MemberDto memberDto = memberService.findByMemberId(memberId);
+        model.addAttribute("member", memberDto);
+        return "member-detail";
+        }
+
      @PostMapping("/members/{memberId}/edit")
         public String updateMember(@PathVariable("memberId") Long memberId, @Valid @ModelAttribute("members") MemberDto member, BindingResult result) {
         if (result.hasErrors()) {
