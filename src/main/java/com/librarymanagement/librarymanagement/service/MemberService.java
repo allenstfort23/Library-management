@@ -6,7 +6,7 @@ import com.librarymanagement.librarymanagement.model.Member;
 import java.util.List;
 
 public interface MemberService {
-    List<MemberDto> findByMember();
+    List<MemberDto> findAllMembers();
 
     void saveMember(MemberDto memberDto);
 

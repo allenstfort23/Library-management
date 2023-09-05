@@ -19,7 +19,7 @@ public class MemberServiceImpl implements MemberService {
     }
 
     @Override
-    public List<MemberDto> findByMember() {
+    public List<MemberDto> findAllMembers() {
        List<Member> members = memberRepository.findAll();
        return members.stream().map(member -> mapToMemberDto(member)).collect(Collectors.toList());
     }

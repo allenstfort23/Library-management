@@ -17,7 +17,7 @@ import java.util.List;
 
 @Controller
 public class MemberController {
-    private MemberService memberService;
+    private final MemberService memberService;
 
     @Autowired
     public MemberController(MemberService memberService) {
@@ -25,8 +25,8 @@ public class MemberController {
     }
 
     @GetMapping("/members")
-    public String listMember(Model model) {
-        List<MemberDto> members = memberService.findByMember();
+    public String listMembers(Model model) {
+        List<MemberDto> members = memberService.findAllMembers();
         model.addAttribute("members", members);
         return "members-list";
     }
